@@ -16,3 +16,31 @@ class Solution {
         return maxLen;
     }
 }
+
+// longest palindrome
+class Solution {
+    public int longestPalindrome(String s) {
+        Map<Character,Integer> map = new HashMap<>();
+        for(char x : s.toCharArray()){
+            map.put(x,map.getOrDefault(x,0)+1);
+        }
+
+        int len = 0;
+        boolean hasOdd = false;
+
+        for(int x : map.values()){
+            if(x % 2==0){
+                len += x;
+            }else{
+                len += x-1;
+                hasOdd = true;
+            }
+        }
+
+        if(hasOdd){
+            len += 1;
+        }
+
+        return len;
+    }
+}
