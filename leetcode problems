@@ -213,3 +213,20 @@ class Solution {
         return lcp;
     }
 }
+
+// Remove duplicates from sorted array
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int n = nums.length;
+        Set<Integer> set = new TreeSet<>();
+        for(int x : nums) set.add(x);
+
+        int ind = 0;
+        int size = set.size();
+        for(int x : set){
+            nums[ind++] = x;
+        }
+
+        return size;
+    }
+}
